@@ -19,6 +19,8 @@ const int sensor2 = 26; // Sensor reflexivo
 const int leds[] = {15, 16, 17, 18, 19};
 const int numLeds = 5;
 
+const int blynkLedsVirtualPins[] = {V2, V3, V4, V5, V6}; 
+
 unsigned long tempoSensor1 = 0;
 unsigned long tempoSensor2 = 0;
 bool esperandoSensor2 = false;
@@ -40,6 +42,8 @@ void atualizarLeds(int pessoas) {
 
   for (int i = 0; i < numLeds; i++) {
     digitalWrite(leds[i], i < n ? HIGH : LOW);
+
+    Blynk.virtualWrite(blynkLedsVirtualPins[i], i < n ? 255 : 0); 
   }
 }
 
@@ -52,6 +56,9 @@ void atualizarInterface(String evento) {
   lcd.print(pessoas);
 
   atualizarLeds(pessoas);
+
+  Blynk.virtualWrite(V1, pessoas);
+  
   delay(2000);
   lcd.clear();
 }
