@@ -27,8 +27,8 @@ bool esperandoSensor2 = false;
 bool esperandoSensor1 = false;
 unsigned long tempoLimite = 3000; // 3 segundos para timeout
 
-char ssid[] = "NET_2GBAF7D2";
-char pass[] = "Sa21151806";
+char ssid[] = "nome da rede";
+char pass[] = "senha";
 
 int pessoas = 0; // contador de pessoas presentes
 String historico = "";
