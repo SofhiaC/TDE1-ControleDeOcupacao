@@ -27,8 +27,8 @@ bool esperandoSensor2 = false;
 bool esperandoSensor1 = false;
 unsigned long tempoLimite = 3000; // 3 segundos para timeout
 
-char ssid[] = "nome da rede";
-char pass[] = "senha";
+char ssid[] = "Xiao";
+char pass[] = "xiaooooo";
 
 int pessoas = 0; // contador de pessoas presentes
 String historico = "";
@@ -58,7 +58,7 @@ void atualizarInterface(String evento) {
   atualizarLeds(pessoas);
 
   Blynk.virtualWrite(V1, pessoas);
-  
+
   delay(2000);
   lcd.clear();
 }
