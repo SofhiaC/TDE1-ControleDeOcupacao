@@ -63,63 +63,6 @@ void atualizarInterface(String evento) {
   lcd.clear();
 }
 
-void paginaWeb() {
-  String html = R"rawliteral(
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <title>Monitor de Ocupação</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f2f2f2;
-          color: #333;
-          text-align: center;
-          padding: 20px;
-        }
-        .container {
-          background: white;
-          max-width: 600px;
-          margin: auto;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-          color: #4CAF50;
-        }
-        .pessoas {
-          font-size: 2em;
-          margin: 20px 0;
-        }
-        pre {
-          text-align: left;
-          background: #eee;
-          padding: 10px;
-          border-radius: 5px;
-          overflow-x: auto;
-          max-height: 200px;
-          white-space: pre-wrap;
-          word-wrap: break-word;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <h1>Monitor de Ocupação</h1>
-        <div class="pessoas">👥 Pessoas no ambiente: <strong>%PESSOAS%</strong></div>
-        <h2>Histórico</h2>
-        <pre>%HISTORICO%</pre>
-      </div>
-    </body>
-    </html>
-  )rawliteral";
-
-  html.replace("%PESSOAS%", String(pessoas));
-  html.replace("%HISTORICO%", historico);
-  server.send(200, "text/html", html);
-}
 
 void setup() {
   Serial.begin(115200);
